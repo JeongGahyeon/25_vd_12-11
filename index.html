@@ -395,12 +395,12 @@
 
         .stat-frame {
             background-color: #fff;
-            border-radius: 32px;
-            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.05);
-            padding: 26px 30px 26px;
+            border-radius: 26px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
+            padding: 22px 24px 20px;
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 16px;
         }
 
         .stat-tab-menu {
@@ -438,30 +438,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 420px;
+            min-height: 360px;
             width: 100%;
         }
 
         #wc-container {
             width: 100%;
-            max-width: 980px;
-            min-height: 380px;
-            border-radius: 24px;
-            background-color: #ffffff;
-            border: 1px solid #eeeeee;
-            box-shadow: 0 26px 80px rgba(0, 0, 0, 0.04);
-            padding: 20px;
+            max-width: 900px;
+            height: 100%;
+            min-height: 320px;
+            border-radius: 18px;
+            background-color: #fafafa;
+            border: 1px solid #f0f0f0;
             display: flex;
             align-items: stretch;
             justify-content: center;
-            margin: 8px auto 4px;
-        }
-
-        /* 캔버스를 박스 안에 자연스럽게 맞추기 */
-        #wc-container canvas {
-            width: 100% !important;
-            height: 100% !important;
-            display: block;
+            padding: 10px;
+            margin: 0 auto;
         }
 
         .stat-tab-content {
@@ -488,44 +481,44 @@
     <!-- 메인 화면 -->
     <div id="welcome-message" class="tab-content" style="display: block;">
         <div class="welcome-topbar">
-            <img src="img/Y.png" alt="Advertising Poster | As of '25">
+            <img src="Y.png" alt="Advertising Poster | As of '25">
         </div>
 
         <div class="welcome-title">
-            <img src="img/T.png" alt="Archive, Cosmetics/Electronics/Food, Public Service Ads / Overall Statistics">
+            <img src="T.png" alt="Archive, Cosmetics/Electronics/Food, Public Service Ads / Overall Statistics">
         </div>
 
         <div id="category-preview" class="welcome-category-row">
             <div class="preview-item" onclick="openCategory('화장품')">
-                <img src="img/N1.png" alt="(1)" class="preview-index">
+                <img src="N1.png" alt="(1)" class="preview-index">
                 <div class="preview-image">
-                    <img src="img/3_25.9.17.jpg" alt="Cosmetics Preview" onerror="this.style.display='none';">
+                    <img src="3_25.9.17.jpg" alt="Cosmetics Preview" onerror="this.style.display='none';">
                 </div>
             </div>
 
             <div class="preview-item" onclick="openCategory('전자가전')">
-                <img src="img/N2.png" alt="(2)" class="preview-index">
+                <img src="N2.png" alt="(2)" class="preview-index">
                 <div class="preview-image">
-                    <img src="img/추가_전자6.jpg" alt="Electronics Preview" onerror="this.style.display='none';">
+                    <img src="추가_전자6.jpg" alt="Electronics Preview" onerror="this.style.display='none';">
                 </div>
             </div>
 
             <div class="preview-item" onclick="openCategory('식품건강')">
-                <img src="img/N3.png" alt="(3)" class="preview-index">
+                <img src="N3.png" alt="(3)" class="preview-index">
                 <div class="preview-image">
-                    <img src="img/5_25.7.15.jpg" alt="Food Preview" onerror="this.style.display='none';">
+                    <img src="5_25.7.15.jpg" alt="Food Preview" onerror="this.style.display='none';">
                 </div>
             </div>
 
             <div class="preview-item" onclick="openCategory('공익단체')">
-                <img src="img/N4.png" alt="(4)" class="preview-index">
+                <img src="N4.png" alt="(4)" class="preview-index">
                 <div class="preview-image">
-                    <img src="img/4_25.11.18.jpg" alt="Public Service Ads Preview" onerror="this.style.display='none';">
+                    <img src="4_25.11.18.jpg" alt="Public Service Ads Preview" onerror="this.style.display='none';">
                 </div>
             </div>
 
             <div class="stats-item" onclick="openStatistics()">
-                <img src="img/OS.png" alt="Overall Statistics" class="stats-image">
+                <img src="OS.png" alt="Overall Statistics" class="stats-image">
             </div>
         </div>
     </div>
@@ -586,92 +579,92 @@
     /* ===== 1. 데이터 정의 ===== */
     const adData = {
         '전자가전': [
-            { id: '가전-1', name: '삼성 BESPOKE AI 냉장고', file: 'img/1_25.11.18.jpg', tnm: '세련됨/고급스러움 (동경_자부심)', goal: '프리미엄_라이프 (라이프스타일_판매)', summary: '제품이 아닌 고급 라이프스타일 판매' },
-            { id: '가전-2', name: 'LG전자 구독 서비스', file: 'img/8_25.9.30.jpg', tnm: '신뢰/체계적/전문가적 (안심_신뢰)', goal: '관리_부담_해소 (서비스_안정)', summary: '소유 책임감을 관리 서비스로 해소하며 장기적 안심 제공' },
-            { id: '가전-3', name: 'LIEBHERR 냉장고', file: 'img/9_25.10.13.jpg', tnm: '고급스러움/전문성 (선망_자부심)', goal: '주방_공간_격상 (고급화_꿈)', summary: '\'미식가의 꿈의 주방\'처럼 높은 안목의 타깃에게 자부심 제공' },
-            { id: '가전-4', name: 'RICOH GR IIIx HDF', file: 'img/10_25.08.14.jpg', tnm: '평온/서정적 (감성_힐링)', goal: '일상_순간_특별함 (라이프스타일_가치)', summary: '일상의 순간을 \'영화 속 장면\'처럼 기록하는 감성적 가치 중시' },
-            { id: '가전-5', name: 'LG UNLIMITED UNIVERSE', file: 'img/5_25.11.10.jpg', tnm: '패셔너블/미스터리 (자유_혁신)', goal: '브랜드_가치_확장 (기대감_선망)', summary: '브랜드 가치를 미래지향적으로 확장하여 혁신에 대한 기대 심어주기' },
-            { id: '가전-6', name: 'PURAXEL ME in', file: 'img/2_25.11.18.jpg', tnm: '전문적/아름다움 (자신감_만족)', goal: '외모_개선_획득 (기능_기반_자신감)', summary: '뷰티 플랫폼 기능 기반으로 소비자의 외모 변화와 자신감 높이기' },
-            { id: '가전-7', name: 'UNIX PROFESSIONAL', file: 'img/3_25.11.13.jpg', tnm: '세련됨/프로페셔널 (자부심_완벽)', goal: '완벽한_결과_제공 (결과적_만족)', summary: '\'프로를 위한 공식\'처럼 최고의 결과에 대한 만족감과 자부심 어필' },
-            { id: '가전-8', name: 'HOVERAir X1', file: 'img/4_25.11.14.jpg', tnm: '강렬함/첨단성 (흥미_성능)', goal: '새로운_경험_제공 (기술적_우위)', summary: '\'세계 최초 8K\' 등 스펙과 성능에 초점을 맞춘 기술적 우위 강조' },
-            { id: '가전-9', name: 'Reencle 음식물 처리기', file: 'img/7_25.9.5.jpg', tnm: '친근/깔끔함 (효율성_만족감)', goal: '일상_불편_해소 (편리함_획득)', summary: '\'간편한 기준\' 제시를 통해 일상 번거로움을 효율적으로 해소' },
-            { id: '가전-10', name: 'Roborock Saros Z70', file: 'img/6_25.11.10.jpg', tnm: '미래지향적/세련됨 (호기심_기술)', goal: '신기술_우위_강조 (성능적_우위)', summary: '첨단 기술력 기반의 스마트 청소 성능적 우위 강조' },
-            { id: '가전-11', name: '삼성 BESPOKE AI 콤보', file: 'img/추가_전자2.jpg', tnm: '혁신적/편의성 (기술_시간)', goal: '생활_노동_해방 (편리함_신세계)', summary: 'AI 세탁/건조 통합으로 \'귀차니즘 부부에게 딱\' 맞는 편리함과 신세계를 약속' },
-            { id: '가전-12', name: '포칼 디바 유토피아', file: 'img/추가_전자3.jpg', tnm: '초현실적/예술적 (프레스티지_동경)', goal: '하이엔드_기준_제시 (최고_희소성)', summary: '제품을 예술적 대상으로 포장하여 절대적인 품질과 가치를 소구' },
-            { id: '가전-13', name: 'Hobolite Iris (조명)', file: 'img/추가_전자4.jpg', tnm: '클래식/감성적 (개성_가치)', goal: '콘텐츠_창작_독려 (자부심_성취)', summary: '휴대용 조명을 통해 \'당신의 이야기\'를 빛내도록 창작자의 자부심 자극' },
-            { id: '가전-14', name: 'LG StanbyME 2', file: 'img/추가_전자5.jpg', tnm: '자유/개성 (유연함_재미)', goal: '시청_경험_확장 (맞춤_경험)', summary: '원하는 곳에 콘텐츠를 즐기는 \'슈퍼 포터블\' 경험 제공' },
-            { id: '가전-15', name: '삼성 Vision AI (TV)', file: 'img/추가_전자6.jpg', tnm: '첨단적/혁신적 (기술_선두)', goal: '프리미엄_시장_주도 (리더십_기대감)', summary: '\'TV의 끝\'이라는 카피로 AI를 통한 기술적 최고 지위 확립' },
-            { id: '가전-16', name: '발뮤다 더 레인지', file: 'img/추가_전자7.jpg', tnm: '미니멀리즘/디자인 (디자인_평온함)', goal: '주방_공간_가치_격상 (라이프스타일_고급화)', summary: '기능보다 \'주방 안 작은 레스토랑\'처럼 미적 가치 강조' },
-            { id: '가전-17', name: '삼성 시스템 에어컨', file: 'img/추가_전자8.jpg', tnm: '럭셔리/첨단 (기술_안심)', goal: 'AI_인증_강조 (미래_신뢰)', summary: 'AI 기술과 인증을 강조하며 주거 공간에 대한 미래 지향적 신뢰 제공' },
-            { id: '가전-18', name: '플렉스 커스텀 키보드', file: 'img/추가_전자9.jpg', tnm: '유쾌/가성비 강조 (즐거움_개성)', goal: '합리적_소비_제시 (만족_실용)', summary: '\'가전이 가격도 착하고 디자인도 이쁘면 안되는 거야?\'라는 카피로 합리적 만족 제공' },
-            { id: '가전-19', name: '힘펠 환기청정기', file: 'img/추가_전자10.jpg', tnm: '전문가적/기능 중심 (건강_신뢰)', goal: '실내_환경_개선 (안심_쾌적함)', summary: '과학적인 기능(환기, 공기청정)을 제시하며 소비자의 건강과 안심이라는 니즈를 충족' },
-            { id: '가전-20', name: '유닉스 디오 폴드', file: 'img/추가_전자1.jpg', tnm: '깔끔함/실용적 (효율성_편의)', goal: '다기능성_강조 (실용_만족)', summary: '강력한 기능과 휴대성을 결합하여 바쁜 일상 속의 실용적 만족감을 판매' }
+            { id: '가전-1', name: '삼성 BESPOKE AI 냉장고', file: '1_25.11.18.jpg', tnm: '세련됨/고급스러움 (동경_자부심)', goal: '프리미엄_라이프 (라이프스타일_판매)', summary: '제품이 아닌 고급 라이프스타일 판매' },
+            { id: '가전-2', name: 'LG전자 구독 서비스', file: '8_25.9.30.jpg', tnm: '신뢰/체계적/전문가적 (안심_신뢰)', goal: '관리_부담_해소 (서비스_안정)', summary: '소유 책임감을 관리 서비스로 해소하며 장기적 안심 제공' },
+            { id: '가전-3', name: 'LIEBHERR 냉장고', file: '9_25.10.13.jpg', tnm: '고급스러움/전문성 (선망_자부심)', goal: '주방_공간_격상 (고급화_꿈)', summary: '\'미식가의 꿈의 주방\'처럼 높은 안목의 타깃에게 자부심 제공' },
+            { id: '가전-4', name: 'RICOH GR IIIx HDF', file: '10_25.08.14.jpg', tnm: '평온/서정적 (감성_힐링)', goal: '일상_순간_특별함 (라이프스타일_가치)', summary: '일상의 순간을 \'영화 속 장면\'처럼 기록하는 감성적 가치 중시' },
+            { id: '가전-5', name: 'LG UNLIMITED UNIVERSE', file: '5_25.11.10.jpg', tnm: '패셔너블/미스터리 (자유_혁신)', goal: '브랜드_가치_확장 (기대감_선망)', summary: '브랜드 가치를 미래지향적으로 확장하여 혁신에 대한 기대 심어주기' },
+            { id: '가전-6', name: 'PURAXEL ME in', file: '2_25.11.18.jpg', tnm: '전문적/아름다움 (자신감_만족)', goal: '외모_개선_획득 (기능_기반_자신감)', summary: '뷰티 플랫폼 기능 기반으로 소비자의 외모 변화와 자신감 높이기' },
+            { id: '가전-7', name: 'UNIX PROFESSIONAL', file: '3_25.11.13.jpg', tnm: '세련됨/프로페셔널 (자부심_완벽)', goal: '완벽한_결과_제공 (결과적_만족)', summary: '\'프로를 위한 공식\'처럼 최고의 결과에 대한 만족감과 자부심 어필' },
+            { id: '가전-8', name: 'HOVERAir X1', file: '4_25.11.14.jpg', tnm: '강렬함/첨단성 (흥미_성능)', goal: '새로운_경험_제공 (기술적_우위)', summary: '\'세계 최초 8K\' 등 스펙과 성능에 초점을 맞춘 기술적 우위 강조' },
+            { id: '가전-9', name: 'Reencle 음식물 처리기', file: '7_25.9.5.jpg', tnm: '친근/깔끔함 (효율성_만족감)', goal: '일상_불편_해소 (편리함_획득)', summary: '\'간편한 기준\' 제시를 통해 일상 번거로움을 효율적으로 해소' },
+            { id: '가전-10', name: 'Roborock Saros Z70', file: '6_25.11.10.jpg', tnm: '미래지향적/세련됨 (호기심_기술)', goal: '신기술_우위_강조 (성능적_우위)', summary: '첨단 기술력 기반의 스마트 청소 성능적 우위 강조' },
+            { id: '가전-11', name: '삼성 BESPOKE AI 콤보', file: '추가_전자2.jpg', tnm: '혁신적/편의성 (기술_시간)', goal: '생활_노동_해방 (편리함_신세계)', summary: 'AI 세탁/건조 통합으로 \'귀차니즘 부부에게 딱\' 맞는 편리함과 신세계를 약속' },
+            { id: '가전-12', name: '포칼 디바 유토피아', file: '추가_전자3.jpg', tnm: '초현실적/예술적 (프레스티지_동경)', goal: '하이엔드_기준_제시 (최고_희소성)', summary: '제품을 예술적 대상으로 포장하여 절대적인 품질과 가치를 소구' },
+            { id: '가전-13', name: 'Hobolite Iris (조명)', file: '추가_전자4.jpg', tnm: '클래식/감성적 (개성_가치)', goal: '콘텐츠_창작_독려 (자부심_성취)', summary: '휴대용 조명을 통해 \'당신의 이야기\'를 빛내도록 창작자의 자부심 자극' },
+            { id: '가전-14', name: 'LG StanbyME 2', file: '추가_전자5.jpg', tnm: '자유/개성 (유연함_재미)', goal: '시청_경험_확장 (맞춤_경험)', summary: '원하는 곳에 콘텐츠를 즐기는 \'슈퍼 포터블\' 경험 제공' },
+            { id: '가전-15', name: '삼성 Vision AI (TV)', file: '추가_전자6.jpg', tnm: '첨단적/혁신적 (기술_선두)', goal: '프리미엄_시장_주도 (리더십_기대감)', summary: '\'TV의 끝\'이라는 카피로 AI를 통한 기술적 최고 지위 확립' },
+            { id: '가전-16', name: '발뮤다 더 레인지', file: '추가_전자7.jpg', tnm: '미니멀리즘/디자인 (디자인_평온함)', goal: '주방_공간_가치_격상 (라이프스타일_고급화)', summary: '기능보다 \'주방 안 작은 레스토랑\'처럼 미적 가치 강조' },
+            { id: '가전-17', name: '삼성 시스템 에어컨', file: '추가_전자8.jpg', tnm: '럭셔리/첨단 (기술_안심)', goal: 'AI_인증_강조 (미래_신뢰)', summary: 'AI 기술과 인증을 강조하며 주거 공간에 대한 미래 지향적 신뢰 제공' },
+            { id: '가전-18', name: '플렉스 커스텀 키보드', file: '추가_전자9.jpg', tnm: '유쾌/가성비 강조 (즐거움_개성)', goal: '합리적_소비_제시 (만족_실용)', summary: '\'가전이 가격도 착하고 디자인도 이쁘면 안되는 거야?\'라는 카피로 합리적 만족 제공' },
+            { id: '가전-19', name: '힘펠 환기청정기', file: '추가_전자10.jpg', tnm: '전문가적/기능 중심 (건강_신뢰)', goal: '실내_환경_개선 (안심_쾌적함)', summary: '과학적인 기능(환기, 공기청정)을 제시하며 소비자의 건강과 안심이라는 니즈를 충족' },
+            { id: '가전-20', name: '유닉스 디오 폴드', file: '추가_전자1.jpg', tnm: '깔끔함/실용적 (효율성_편의)', goal: '다기능성_강조 (실용_만족)', summary: '강력한 기능과 휴대성을 결합하여 바쁜 일상 속의 실용적 만족감을 판매' }
         ],
         '식품건강': [
-            { id: '식품-1', name: '버거킹 Originals', file: 'img/5_25.7.15.jpg', tnm: '풍부함/압도적 비주얼 (충족감_식욕 자극)', goal: '즉각적인 구매 유도 (충동_만족)', summary: '압도적 만족감을 통한 충동 구매 유도' },
-            { id: '식품-2', name: '팔도 비빔면', file: 'img/8_25.7.4.jpg', tnm: '유쾌함/활기찬 톤 (활력_즐거움)', goal: '친밀도 높이기 (유머_애착)', summary: '유머와 맛으로 제품 친밀도 높이기' },
-            { id: '식품-3', name: '청정원 HOME:INGS', file: 'img/3_25.08.21.jpg', tnm: '친절/믿음직함 (안심_편의성)', goal: '관리 부담 해소 (일상_편안함)', summary: '요리 부담 해소를 통한 일상 편안함 제공' },
-            { id: '식품-4', name: '롯데리아 리아', file: 'img/4_25.07.18.jpg', tnm: '고급스러움/품격 (신뢰도_자긍심)', goal: '브랜드 이미지 격상 (프리미엄_어필)', summary: '프리미엄 모델 활용 이미지 격상' },
-            { id: '식품-5', name: '롯데리아 월간 리아', file: 'img/9_25.5.30.jpg', tnm: '유머러스함/친근함 (공감_기대감)', goal: '브랜드 애착 형성 (유머_친밀감)', summary: '유머를 통한 브랜드 애착 형성' },
-            { id: '식품-6', name: '앱솔루트 산양100', file: 'img/2_25.11.10 2.jpg', tnm: '부드러움/평온함 (확신_안심)', goal: '안전한 선택 제공 (안전성_강조)', summary: '민감 분야에서 안전성을 최우선 강조' },
-            { id: '식품-7', name: '켈로그 첵스초코', file: 'img/7_25.7.3.jpg', tnm: '재미있음/달콤함 (즐거움_만족)', goal: '죄책감 없는 즐거움 (기능_결합)', summary: '기능과 맛의 결합으로 소비 합리화' },
-            { id: '식품-8', name: '청정원 간장', file: 'img/6_25.6.20.jpg', tnm: '단호함/확신 (만족감_보장)', goal: '요리 성공 유도 (결과적_확신)', summary: '단호한 메시지로 행동 변화 촉진' },
-            { id: '식품-9', name: '락토핏', file: 'img/10_6.9.jpg', tnm: '권위적/신뢰감 (안정감_확신)', goal: '데이터 기반 신뢰 확보 (숫자_데이터_활용)', summary: '숫자/데이터 활용한 감정적 신뢰 확보' },
-            { id: '식품-10', name: '이클립스', file: 'img/1_25.11.18 2.jpg', tnm: '부드러움/평온함 (휴식_힐링)', goal: '스트레스 해소 경험 (감성적_경험)', summary: '감성 비주얼로 순간의 안정감 판매' },
-            { id: '식품-11', name: '차오차이 소스', file: 'img/추가_식품1.jpg', tnm: '자신감/활기참 (도전_유희)', goal: '외식 메뉴 집에서 재현 (성취감_자신감)', summary: '어려운 중화요리를 집에서 쉽게 할 수 있다는 사용자의 자신감 증진' },
-            { id: '식품-12', name: '벤앤제리스 아이스크림', file: 'img/추가_식품2.jpg', tnm: '과감함/다채로움 (즐거움_탐닉)', goal: '사회적 가치 결합 (윤리_만족)', summary: '화려한 탐닉적 비주얼과 함께 프리미엄 및 윤리적 소비라는 가치를 결합' },
-            { id: '식품-13', name: '동원 쯔유', file: 'img/추가_식품3.jpg', tnm: '가정적/편안함 (편의성_만족감)', goal: '요리 다용도 홍보 (간편_풍부한_맛)', summary: '복잡하지 않고 맛있게 요리할 수 있다는 간편함과 실용적 만족을 판매' },
-            { id: '식품-14', name: '서울우유 체다치즈', file: 'img/추가_식품4.jpg', tnm: '따뜻함/일상적 (친밀감_편안함)', goal: '일상 필수품 강조 (익숙함_편안함)', summary: '연예인을 통해 치즈를 친근하고 즐거운 일상의 소재로 포지셔닝' },
-            { id: '식품-15', name: '메노락토 프리미엄', file: 'img/추가_식품5.jpg', tnm: '럭셔리/권위적 (권위_자신감)', goal: '갱년기 건강 증진 (자부심_신뢰)', summary: '수상 경력과 전문가 이미지를 활용해 여성 건강에 대한 확신 판매' },
-            { id: '식품-16', name: '종가 김치', file: 'img/추가_식품6.jpg', tnm: '전통적/권위적 (헤리티지_자부심)', goal: '브랜드 최고 지위 강화 (품질_자부심)', summary: '전통 문양과 수상 내역을 통해 김치 분야의 최고 권위를 강조' },
-            { id: '식품-17', name: '제스프리 제주 썬골드키위', file: 'img/추가_식품7.jpg', tnm: '밝음/신선함 (순수_친근함)', goal: '산지 원료 강조 (자연_쾌감)', summary: '제주라는 청정 이미지를 활용해 신선함과 안전성을 직관적으로 어필' },
-            { id: '식품-18', name: '농협 안심한우', file: 'img/추가_식품8.jpg', tnm: '유머러스/친근함 (안심_신뢰)', goal: '브랜드 가치 연결 (안전_신뢰)', summary: '재미있는 비주얼 속에 농협이라는 기관의 안전성을 결합하여 어필' },
-            { id: '식품-19', name: '풀무원 지구식단', file: 'img/추가_식품9.jpg', tnm: '자연적/전문가 톤 (건강_책임감)', goal: '환경 의식 개선 (선택_자부심)', summary: '전문가(셰프)를 통해 친환경적이고 건강한 식습관이라는 메시지 전달' },
-            { id: '식품-20', name: '동원 참치다시', file: 'img/추가_식품10.jpg', tnm: '전문적/어두운 톤 (신뢰_전문성)', goal: '원재료 품질 보증 (품질_확신)', summary: '소스/육수를 원재료급의 전문성으로 격상하여 신뢰 유도' }
+            { id: '식품-1', name: '버거킹 Originals', file: '5_25.7.15.jpg', tnm: '풍부함/압도적 비주얼 (충족감_식욕 자극)', goal: '즉각적인 구매 유도 (충동_만족)', summary: '압도적 만족감을 통한 충동 구매 유도' },
+            { id: '식품-2', name: '팔도 비빔면', file: '8_25.7.4.jpg', tnm: '유쾌함/활기찬 톤 (활력_즐거움)', goal: '친밀도 높이기 (유머_애착)', summary: '유머와 맛으로 제품 친밀도 높이기' },
+            { id: '식품-3', name: '청정원 HOME:INGS', file: '3_25.08.21.jpg', tnm: '친절/믿음직함 (안심_편의성)', goal: '관리 부담 해소 (일상_편안함)', summary: '요리 부담 해소를 통한 일상 편안함 제공' },
+            { id: '식품-4', name: '롯데리아 리아', file: '4_25.07.18.jpg', tnm: '고급스러움/품격 (신뢰도_자긍심)', goal: '브랜드 이미지 격상 (프리미엄_어필)', summary: '프리미엄 모델 활용 이미지 격상' },
+            { id: '식품-5', name: '롯데리아 월간 리아', file: '9_25.5.30.jpg', tnm: '유머러스함/친근함 (공감_기대감)', goal: '브랜드 애착 형성 (유머_친밀감)', summary: '유머를 통한 브랜드 애착 형성' },
+            { id: '식품-6', name: '앱솔루트 산양100', file: '2_25.11.10 2.jpg', tnm: '부드러움/평온함 (확신_안심)', goal: '안전한 선택 제공 (안전성_강조)', summary: '민감 분야에서 안전성을 최우선 강조' },
+            { id: '식품-7', name: '켈로그 첵스초코', file: '7_25.7.3.jpg', tnm: '재미있음/달콤함 (즐거움_만족)', goal: '죄책감 없는 즐거움 (기능_결합)', summary: '기능과 맛의 결합으로 소비 합리화' },
+            { id: '식품-8', name: '청정원 간장', file: '6_25.6.20.jpg', tnm: '단호함/확신 (만족감_보장)', goal: '요리 성공 유도 (결과적_확신)', summary: '단호한 메시지로 행동 변화 촉진' },
+            { id: '식품-9', name: '락토핏', file: '10_6.9.jpg', tnm: '권위적/신뢰감 (안정감_확신)', goal: '데이터 기반 신뢰 확보 (숫자_데이터_활용)', summary: '숫자/데이터 활용한 감정적 신뢰 확보' },
+            { id: '식품-10', name: '이클립스', file: '1_25.11.18 2.jpg', tnm: '부드러움/평온함 (휴식_힐링)', goal: '스트레스 해소 경험 (감성적_경험)', summary: '감성 비주얼로 순간의 안정감 판매' },
+            { id: '식품-11', name: '차오차이 소스', file: '추가_식품1.jpg', tnm: '자신감/활기참 (도전_유희)', goal: '외식 메뉴 집에서 재현 (성취감_자신감)', summary: '어려운 중화요리를 집에서 쉽게 할 수 있다는 사용자의 자신감 증진' },
+            { id: '식품-12', name: '벤앤제리스 아이스크림', file: '추가_식품2.jpg', tnm: '과감함/다채로움 (즐거움_탐닉)', goal: '사회적 가치 결합 (윤리_만족)', summary: '화려한 탐닉적 비주얼과 함께 프리미엄 및 윤리적 소비라는 가치를 결합' },
+            { id: '식품-13', name: '동원 쯔유', file: '추가_식품3.jpg', tnm: '가정적/편안함 (편의성_만족감)', goal: '요리 다용도 홍보 (간편_풍부한_맛)', summary: '복잡하지 않고 맛있게 요리할 수 있다는 간편함과 실용적 만족을 판매' },
+            { id: '식품-14', name: '서울우유 체다치즈', file: '추가_식품4.jpg', tnm: '따뜻함/일상적 (친밀감_편안함)', goal: '일상 필수품 강조 (익숙함_편안함)', summary: '연예인을 통해 치즈를 친근하고 즐거운 일상의 소재로 포지셔닝' },
+            { id: '식품-15', name: '메노락토 프리미엄', file: '추가_식품5.jpg', tnm: '럭셔리/권위적 (권위_자신감)', goal: '갱년기 건강 증진 (자부심_신뢰)', summary: '수상 경력과 전문가 이미지를 활용해 여성 건강에 대한 확신 판매' },
+            { id: '식품-16', name: '종가 김치', file: '추가_식품6.jpg', tnm: '전통적/권위적 (헤리티지_자부심)', goal: '브랜드 최고 지위 강화 (품질_자부심)', summary: '전통 문양과 수상 내역을 통해 김치 분야의 최고 권위를 강조' },
+            { id: '식품-17', name: '제스프리 제주 썬골드키위', file: '추가_식품7.jpg', tnm: '밝음/신선함 (순수_친근함)', goal: '산지 원료 강조 (자연_쾌감)', summary: '제주라는 청정 이미지를 활용해 신선함과 안전성을 직관적으로 어필' },
+            { id: '식품-18', name: '농협 안심한우', file: '추가_식품8.jpg', tnm: '유머러스/친근함 (안심_신뢰)', goal: '브랜드 가치 연결 (안전_신뢰)', summary: '재미있는 비주얼 속에 농협이라는 기관의 안전성을 결합하여 어필' },
+            { id: '식품-19', name: '풀무원 지구식단', file: '추가_식품9.jpg', tnm: '자연적/전문가 톤 (건강_책임감)', goal: '환경 의식 개선 (선택_자부심)', summary: '전문가(셰프)를 통해 친환경적이고 건강한 식습관이라는 메시지 전달' },
+            { id: '식품-20', name: '동원 참치다시', file: '추가_식품10.jpg', tnm: '전문적/어두운 톤 (신뢰_전문성)', goal: '원재료 품질 보증 (품질_확신)', summary: '소스/육수를 원재료급의 전문성으로 격상하여 신뢰 유도' }
         ],
         '화장품': [
-            { id: '화장품-1', name: '한율', file: 'img/8_25.7.11.jpg', tnm: '자연주의/평온함 (문제 해결 및 안정감)', goal: '문제 해결 및 안정감 (자연주의 기반의 진정성)', summary: '자연주의 기반의 진정성' },
-            { id: '화장품-2', name: '바노바기', file: 'img/1_25.11.14.jpg', tnm: '친근함/유쾌함 (대중적 구매 유도)', goal: '대중적 구매 유도 (대중성을 통한 쉬운 접근)', summary: '대중성을 통한 쉬운 접근' },
-            { id: '화장품-3', name: '달바', file: 'img/10_25.8.1.jpg', tnm: '고급 기능성/전문화 (안티에이징 욕구 충족)', goal: '안티에이징 욕구 충족 (기능성 및 효능에 대한 확신)', summary: '기능성 및 효능에 대한 확신' },
-            { id: '화장품-4', name: 'COSRX', file: 'img/7_25.8.29.jpg', tnm: '활력/건강함 (피부 광채 어필)', goal: '피부 광채 어필 (즉각적인 활력과 생기 강조)', summary: '즉각적인 활력과 생기 강조' },
-            { id: '화장품-5', name: 'CLIO', file: 'img/6_25.9.4.jpg', tnm: '깔끔함/완벽함 (결점 보완을 통한 자신감)', goal: '피부 완성도 제공 (결점 보완을 통한 자신감)', summary: '결점 보완을 통한 자신감' },
-            { id: '화장품-6', name: 'Benefit', file: 'img/2_25.11.10.jpg', tnm: '따뜻함/자연스러움 (일상 매력 증진)', goal: '일상 매력 증진 (일상 속의 매력 강조)', summary: '일상 속의 매력 강조' },
-            { id: '화장품-7', name: 'UNOVE', file: 'img/9_25.8.5.jpg', tnm: '몽환적/트렌디함 (자아 실현 욕구 자극)', goal: '자아 실현 욕구 자극 (개성과 스타일의 완성)', summary: '개성과 스타일의 완성' },
-            { id: '화장품-8', name: '설화수', file: 'img/4_25.10.10.jpg', tnm: '깊이/우아함 (헤리티지 기반의 품격)', goal: '가치 보존 어필 (헤리티지 기반의 품격)', summary: '헤리티지 기반의 품격' },
-            { id: '화장품-9', name: 'LOUIS VUITTON', file: 'img/5_25.10.10.jpg', tnm: '파격/예술적 (브랜드 가치 판매)', goal: '브랜드 가치 판매 (럭셔리 브랜드의 가치 판매)', summary: '럭셔리 브랜드의 가치 판매' },
-            { id: '화장품-10', name: 'JO MALONE', file: 'img/3_25.9.17.jpg', tnm: '예술적/복합적 (감각 경험 유도)', goal: '감각 경험 유도 (감각적이고 예술적인 접근)', summary: '감각적이고 예술적인 접근' },
-            { id: '화장품-11', name: '라로슈포제 시카플라스트 밤', file: 'img/추가_화장품6.jpg', tnm: '더마/임상적 (장기적_피부_문제_해결)', goal: '장기적_피부_문제_해결 (검증된 장기적 신뢰)', summary: '다양한 연령대의 모델을 통해 \'인생 시카\'라는 타이틀로 검증된 장기적 신뢰를 강조' },
-            { id: '화장품-12', name: 'EMBRYOLISSE', file: 'img/추가_화장품10.jpg', tnm: '더마/임상적 (온가족_멀티_케어)', goal: '온가족_멀티_케어 (임상적 신뢰도를 바탕으로 민감성 피부와 온가족 사용의 안전성을 강조)', summary: '임상적 신뢰도를 바탕으로 민감성 피부와 온가족 사용의 안전성을 강조' },
-            { id: '화장품-13', name: 'BIOTHERM HOMME', file: 'img/추가_화장품8.jpg', tnm: '남성_전문/강렬함 (고성능_활력_회복)', goal: '고성능_활력_회복 (남성을 위한 빠르고 강력한 기능성 회복을 강조하여 자신감이라는 결과를 판매)', summary: '남성을 위한 빠르고 강력한 기능성 회복을 강조하여 자신감을 판매' },
-            { id: '화장품-14', name: 'REJURAN COSMETICS', file: 'img/추가_화장품1.jpg', tnm: '프레스티지/과학적 (의학적_솔루션_제시)', goal: '의학적_솔루션_제시 (의료용 성분을 활용하여 높은 효능과 제품 가치를 소구)', summary: '의료용 성분을 활용하여 높은 효능과 제품 가치를 소구' },
-            { id: '화장품-15', name: 'SW19 Fragrance', file: 'img/추가_화장품3.jpg', tnm: '감성적/몽환적 (감각적_경험_판매)', goal: '감각적_경험_판매 (제품 사용을 개인적인 사치나 고급스러운 의식으로 포장하여 감각적 경험을 판매)', summary: '제품 사용을 개인적인 사치나 고급스러운 의식으로 포장하여 감각적 경험을 판매' },
-            { id: '화장품-16', name: 'AESTURA Atobarrier', file: 'img/추가_화장품9.jpg', tnm: '과학적/수치_중심 (피부_장벽_강화)', goal: '피부_장벽_강화 (데이터와 기술을 강조하며 민감성 피부에 대한 안정성과 효능을 보장)', summary: '데이터와 기술을 강조하며 민감성 피부에 대한 안정성과 효능을 보장' },
-            { id: '화장품-17', name: 'NONFICTION', file: 'img/추가_화장품2.jpg', tnm: '미니멀/고급 (감각_리추얼_강조)', goal: '감각_리추얼_강조 (제품을 일상에서의 휴식과 미적 감각으로 연결하여 웰니스 라이프를 소구)', summary: '제품을 일상에서의 휴식과 미적 감각으로 연결하여 웰니스 라이프를 소구' },
-            { id: '화장품-18', name: 'LA MER Night Cream', file: 'img/추가_화장품5.jpg', tnm: '럭셔리/신비로움 (극적인_변화_약속)', goal: '극적인_변화_약속 (신화적 배경과 놀라운 변화라는 카피를 통해 최고의 효과에 대한 강한 기대감을 조성)', summary: '신화적 배경과 놀라운 변화라는 카피를 통해 최고의 효과에 대한 강한 기대감을 조성' },
-            { id: '화장품-19', name: 'CHICHO Cleansing Oil', file: 'img/추가_화장품4.jpg', tnm: '자연적/차분함 (모공_딥클렌징_효능)', goal: '모공_딥클렌징_효능 (식물성 성분과 클렌징 효과를 연결하여 순하면서도 강력한 모공 케어 솔루션 제시)', summary: '식물성 성분과 클렌징 효과를 연결하여 순하면서도 강력한 모공 케어 솔루션 제시' },
-            { id: '화장품-20', name: 'comma, nine Clay Pack', file: 'img/추가_화장품7.jpg', tnm: '기능성/세련됨 (국소부위_문제_해결)', goal: '국소부위_문제_해결 (모공 관리를 통해 눈에 보이는 결과를 소구하여 자신감을 높임)', summary: '모공 관리를 통해 눈에 보이는 결과를 소구하여 자신감을 높임' }
+            { id: '화장품-1', name: '한율', file: '8_25.7.11.jpg', tnm: '자연주의/평온함 (문제 해결 및 안정감)', goal: '문제 해결 및 안정감 (자연주의 기반의 진정성)', summary: '자연주의 기반의 진정성' },
+            { id: '화장품-2', name: '바노바기', file: '1_25.11.14.jpg', tnm: '친근함/유쾌함 (대중적 구매 유도)', goal: '대중적 구매 유도 (대중성을 통한 쉬운 접근)', summary: '대중성을 통한 쉬운 접근' },
+            { id: '화장품-3', name: '달바', file: '10_25.8.1.jpg', tnm: '고급 기능성/전문화 (안티에이징 욕구 충족)', goal: '안티에이징 욕구 충족 (기능성 및 효능에 대한 확신)', summary: '기능성 및 효능에 대한 확신' },
+            { id: '화장품-4', name: 'COSRX', file: '7_25.8.29.jpg', tnm: '활력/건강함 (피부 광채 어필)', goal: '피부 광채 어필 (즉각적인 활력과 생기 강조)', summary: '즉각적인 활력과 생기 강조' },
+            { id: '화장품-5', name: 'CLIO', file: '6_25.9.4.jpg', tnm: '깔끔함/완벽함 (결점 보완을 통한 자신감)', goal: '피부 완성도 제공 (결점 보완을 통한 자신감)', summary: '결점 보완을 통한 자신감' },
+            { id: '화장품-6', name: 'Benefit', file: '2_25.11.10.jpg', tnm: '따뜻함/자연스러움 (일상 매력 증진)', goal: '일상 매력 증진 (일상 속의 매력 강조)', summary: '일상 속의 매력 강조' },
+            { id: '화장품-7', name: 'UNOVE', file: '9_25.8.5.jpg', tnm: '몽환적/트렌디함 (자아 실현 욕구 자극)', goal: '자아 실현 욕구 자극 (개성과 스타일의 완성)', summary: '개성과 스타일의 완성' },
+            { id: '화장품-8', name: '설화수', file: '4_25.10.10.jpg', tnm: '깊이/우아함 (헤리티지 기반의 품격)', goal: '가치 보존 어필 (헤리티지 기반의 품격)', summary: '헤리티지 기반의 품격' },
+            { id: '화장품-9', name: 'LOUIS VUITTON', file: '5_25.10.10.jpg', tnm: '파격/예술적 (브랜드 가치 판매)', goal: '브랜드 가치 판매 (럭셔리 브랜드의 가치 판매)', summary: '럭셔리 브랜드의 가치 판매' },
+            { id: '화장품-10', name: 'JO MALONE', file: '3_25.9.17.jpg', tnm: '예술적/복합적 (감각 경험 유도)', goal: '감각 경험 유도 (감각적이고 예술적인 접근)', summary: '감각적이고 예술적인 접근' },
+            { id: '화장품-11', name: '라로슈포제 시카플라스트 밤', file: '추가_화장품6.jpg', tnm: '더마/임상적 (장기적_피부_문제_해결)', goal: '장기적_피부_문제_해결 (검증된 장기적 신뢰)', summary: '다양한 연령대의 모델을 통해 \'인생 시카\'라는 타이틀로 검증된 장기적 신뢰를 강조' },
+            { id: '화장품-12', name: 'EMBRYOLISSE', file: '추가_화장품10.jpg', tnm: '더마/임상적 (온가족_멀티_케어)', goal: '온가족_멀티_케어 (임상적 신뢰도를 바탕으로 민감성 피부와 온가족 사용의 안전성을 강조)', summary: '임상적 신뢰도를 바탕으로 민감성 피부와 온가족 사용의 안전성을 강조' },
+            { id: '화장품-13', name: 'BIOTHERM HOMME', file: '추가_화장품8.jpg', tnm: '남성_전문/강렬함 (고성능_활력_회복)', goal: '고성능_활력_회복 (남성을 위한 빠르고 강력한 기능성 회복을 강조하여 자신감이라는 결과를 판매)', summary: '남성을 위한 빠르고 강력한 기능성 회복을 강조하여 자신감을 판매' },
+            { id: '화장품-14', name: 'REJURAN COSMETICS', file: '추가_화장품1.jpg', tnm: '프레스티지/과학적 (의학적_솔루션_제시)', goal: '의학적_솔루션_제시 (의료용 성분을 활용하여 높은 효능과 제품 가치를 소구)', summary: '의료용 성분을 활용하여 높은 효능과 제품 가치를 소구' },
+            { id: '화장품-15', name: 'SW19 Fragrance', file: '추가_화장품3.jpg', tnm: '감성적/몽환적 (감각적_경험_판매)', goal: '감각적_경험_판매 (제품 사용을 개인적인 사치나 고급스러운 의식으로 포장하여 감각적 경험을 판매)', summary: '제품 사용을 개인적인 사치나 고급스러운 의식으로 포장하여 감각적 경험을 판매' },
+            { id: '화장품-16', name: 'AESTURA Atobarrier', file: '추가_화장품9.jpg', tnm: '과학적/수치_중심 (피부_장벽_강화)', goal: '피부_장벽_강화 (데이터와 기술을 강조하며 민감성 피부에 대한 안정성과 효능을 보장)', summary: '데이터와 기술을 강조하며 민감성 피부에 대한 안정성과 효능을 보장' },
+            { id: '화장품-17', name: 'NONFICTION', file: '추가_화장품2.jpg', tnm: '미니멀/고급 (감각_리추얼_강조)', goal: '감각_리추얼_강조 (제품을 일상에서의 휴식과 미적 감각으로 연결하여 웰니스 라이프를 소구)', summary: '제품을 일상에서의 휴식과 미적 감각으로 연결하여 웰니스 라이프를 소구' },
+            { id: '화장품-18', name: 'LA MER Night Cream', file: '추가_화장품5.jpg', tnm: '럭셔리/신비로움 (극적인_변화_약속)', goal: '극적인_변화_약속 (신화적 배경과 놀라운 변화라는 카피를 통해 최고의 효과에 대한 강한 기대감을 조성)', summary: '신화적 배경과 놀라운 변화라는 카피를 통해 최고의 효과에 대한 강한 기대감을 조성' },
+            { id: '화장품-19', name: 'CHICHO Cleansing Oil', file: '추가_화장품4.jpg', tnm: '자연적/차분함 (모공_딥클렌징_효능)', goal: '모공_딥클렌징_효능 (식물성 성분과 클렌징 효과를 연결하여 순하면서도 강력한 모공 케어 솔루션 제시)', summary: '식물성 성분과 클렌징 효과를 연결하여 순하면서도 강력한 모공 케어 솔루션 제시' },
+            { id: '화장품-20', name: 'comma, nine Clay Pack', file: '추가_화장품7.jpg', tnm: '기능성/세련됨 (국소부위_문제_해결)', goal: '국소부위_문제_해결 (모공 관리를 통해 눈에 보이는 결과를 소구하여 자신감을 높임)', summary: '모공 관리를 통해 눈에 보이는 결과를 소구하여 자신감을 높임' }
         ],
         '공익단체': [
-            { id: '공익-1', name: '성착취 영상(폰)', file: 'img/1_25.11.19.jpg', tnm: '어둡고 심각함 (죄책감_자성)', goal: '행동 중지 촉구 (윤리적 죄책감 유도)', summary: '윤리적 죄책감 유도' },
-            { id: '공익-2', name: '딥페이크 퍼즐', file: 'img/7_25.11.14.jpg', tnm: '혼란스러움/분리 (경고_위험 인식)', goal: '문제의 심각성 인지 (위험 고지와 문제 정의)', summary: '위험 고지와 문제 정의' },
-            { id: '공익-3', name: '전세사기', file: 'img/3_25.11.19.jpg', tnm: '불안감/미스터리 (불안감_경각심)', goal: '사전 행동 촉구 (불안감을 통한 행동 촉구)', summary: '불안감을 통한 행동 촉구' },
-            { id: '공익-4', name: '전자담배 연기', file: 'img/10_25.11.18.jpg', tnm: '어두움/위협적 (공포_금연 유도)', goal: '잘못된 믿음 해소 (사실 기반의 공포 마케팅)', summary: '사실 기반의 공포 마케팅' },
-            { id: '공익-5', name: '심혈관 질환(심분증)', file: 'img/5_25.11.18.jpg', tnm: '경고성/진지함 (의무감_책임감)', goal: '개인 건강 관리 독려 (자가 관리의 의무감 강조)', summary: '자가 관리의 의무감 강조' },
-            { id: '공익-6', name: '혈관 건강(시력표)', file: 'img/6_25.11.17.jpg', tnm: '위트 있는 경고 (관심_예방 의지)', goal: '예방 행동 습관화 (익숙한 비유를 통한 인식 개선)', summary: '익숙한 비유를 통한 인식 개선' },
-            { id: '공익-7', name: '한국전력 안전', file: 'img/9_25.11.12.jpg', tnm: '권위/신뢰 (확신_안전 의지)', goal: '가치관 확립 (공공 기관의 윤리적 책임 강조)', summary: '공공 기관의 윤리적 책임 강조' },
-            { id: '공익-8', name: '헌혈(Plus Influencer)', file: 'img/8_25.11.14.jpg', tnm: '밝음/감사 (자부심_긍정적 보상)', goal: '참여 독려 (참여에 대한 긍정적 보상)', summary: '참여에 대한 긍정적 보상' },
-            { id: '공익-9', name: '장애인 보조견', file: 'img/4_25.11.18.jpg', tnm: '따뜻함/희망 (공감_수용)', goal: '사회적 인식 개선 (공감과 수용을 통한 인식 개선)', summary: '공감과 수용을 통한 인식 개선' },
-            { id: '공익-10', name: '디지털 성범죄 지원', file: 'img/2_25.11.19.jpg', tnm: '도움 요청/지원 의지 (안심_구조)', goal: '피해자 안심 및 신고 (안심을 통한 문제 해결 유도)', summary: '안심을 통한 문제 해결 유도' },
-            { id: '공익-11', name: 'ACC는 운전면허가 없습니다', file: 'img/gongik_acc_03.jpg', tnm: '경고성/단호함 (책임감_주의)', goal: '안전 불감증 경고 (부정적_결과_유도)', summary: '부정적 결과 제시, 책임감과 주의 촉구' },
-            { id: '공익-12', name: '빼앗긴 얼굴', file: 'img/추가_공익5.jpg', tnm: '불안감/미스터리 (위협_불안)', goal: '디지털 성범죄 경고 (심각성_인지)', summary: '익명화된 공포를 통해 문제의 심각성 인지' },
-            { id: '공익-13', name: '고의사고 아닌 고의범죄입니다', file: 'img/추가_공익9.jpg', tnm: '위협적/범죄 영화 톤 (공포_경고)', goal: '법적 심각성 경고 (처벌_두려움)', summary: '처벌 수위 명시, 범죄 행위로 규정' },
-            { id: '공익-14', name: '자산 기부', file: 'img/추가_공익2.jpg', tnm: '차분함/사색적 (자부심_긍정)', goal: '사회_공헌_독려 (숭고한_가치)', summary: '개인의 자산을 숭고한 가치와 연결' },
-            { id: '공익-15', name: '다치지 마세요', file: 'img/추가_공익7.jpg', tnm: '소박함/따뜻한 감성 (배려_공감)', goal: '산업재해_예방 (휴머니즘)', summary: '휴머니즘을 활용해 안전 수칙 준수 강조' },
-            { id: '공익-16', name: '무료 와이파이 속 엿보는 눈동자', file: 'img/추가_공익6.jpg', tnm: '경계심/불안감 (위험_경각심)', goal: '개인정보_보호 (주의_환기)', summary: '일상 속의 잠재적 위험을 시각화' },
-            { id: '공익-17', name: '불법 소각', file: 'img/추가_공익10.jpg', tnm: '강렬함/위협 (공포_위험)', goal: '위법_행위_경고 (자기_파괴_경고)', summary: '행위자 자신에게 피해가 돌아옴을 강조' },
-            { id: '공익-18', name: '우산 안으로 행복 앞으로', file: 'img/추가_공익1.jpg', tnm: '밝음/따뜻함 (연대감_희망)', goal: '아동_보호_후원 (긍정적_감성_부여)', summary: '긍정적인 감성을 활용해 후원 이미지 부여' },
-            { id: '공익-19', name: '뒷좌석 안전띠 CHECK', file: 'img/추가_공익8.jpg', tnm: '밝음/진지함 (책임감_안전)', goal: '안전_습관_유도 (책임감_강조)', summary: '긍정적 이미지와 부정적 통계 대비' },
-            { id: '공익-20', name: '산불예방', file: 'img/추가_공익4.jpg', tnm: '위협적/강렬함 (두려움_손실)', goal: '예방_행동_촉구 (공포_회피)', summary: '공포/손실 회피 심리를 활용' }
+            { id: '공익-1', name: '성착취 영상(폰)', file: '1_25.11.19.jpg', tnm: '어둡고 심각함 (죄책감_자성)', goal: '행동 중지 촉구 (윤리적 죄책감 유도)', summary: '윤리적 죄책감 유도' },
+            { id: '공익-2', name: '딥페이크 퍼즐', file: '7_25.11.14.jpg', tnm: '혼란스러움/분리 (경고_위험 인식)', goal: '문제의 심각성 인지 (위험 고지와 문제 정의)', summary: '위험 고지와 문제 정의' },
+            { id: '공익-3', name: '전세사기', file: '3_25.11.19.jpg', tnm: '불안감/미스터리 (불안감_경각심)', goal: '사전 행동 촉구 (불안감을 통한 행동 촉구)', summary: '불안감을 통한 행동 촉구' },
+            { id: '공익-4', name: '전자담배 연기', file: '10_25.11.18.jpg', tnm: '어두움/위협적 (공포_금연 유도)', goal: '잘못된 믿음 해소 (사실 기반의 공포 마케팅)', summary: '사실 기반의 공포 마케팅' },
+            { id: '공익-5', name: '심혈관 질환(심분증)', file: '5_25.11.18.jpg', tnm: '경고성/진지함 (의무감_책임감)', goal: '개인 건강 관리 독려 (자가 관리의 의무감 강조)', summary: '자가 관리의 의무감 강조' },
+            { id: '공익-6', name: '혈관 건강(시력표)', file: '6_25.11.17.jpg', tnm: '위트 있는 경고 (관심_예방 의지)', goal: '예방 행동 습관화 (익숙한 비유를 통한 인식 개선)', summary: '익숙한 비유를 통한 인식 개선' },
+            { id: '공익-7', name: '한국전력 안전', file: '9_25.11.12.jpg', tnm: '권위/신뢰 (확신_안전 의지)', goal: '가치관 확립 (공공 기관의 윤리적 책임 강조)', summary: '공공 기관의 윤리적 책임 강조' },
+            { id: '공익-8', name: '헌혈(Plus Influencer)', file: '8_25.11.14.jpg', tnm: '밝음/감사 (자부심_긍정적 보상)', goal: '참여 독려 (참여에 대한 긍정적 보상)', summary: '참여에 대한 긍정적 보상' },
+            { id: '공익-9', name: '장애인 보조견', file: '4_25.11.18.jpg', tnm: '따뜻함/희망 (공감_수용)', goal: '사회적 인식 개선 (공감과 수용을 통한 인식 개선)', summary: '공감과 수용을 통한 인식 개선' },
+            { id: '공익-10', name: '디지털 성범죄 지원', file: '2_25.11.19.jpg', tnm: '도움 요청/지원 의지 (안심_구조)', goal: '피해자 안심 및 신고 (안심을 통한 문제 해결 유도)', summary: '안심을 통한 문제 해결 유도' },
+            { id: '공익-11', name: 'ACC는 운전면허가 없습니다', file: 'gongik_acc_03.jpg', tnm: '경고성/단호함 (책임감_주의)', goal: '안전 불감증 경고 (부정적_결과_유도)', summary: '부정적 결과 제시, 책임감과 주의 촉구' },
+            { id: '공익-12', name: '빼앗긴 얼굴', file: '추가_공익5.jpg', tnm: '불안감/미스터리 (위협_불안)', goal: '디지털 성범죄 경고 (심각성_인지)', summary: '익명화된 공포를 통해 문제의 심각성 인지' },
+            { id: '공익-13', name: '고의사고 아닌 고의범죄입니다', file: '추가_공익9.jpg', tnm: '위협적/범죄 영화 톤 (공포_경고)', goal: '법적 심각성 경고 (처벌_두려움)', summary: '처벌 수위 명시, 범죄 행위로 규정' },
+            { id: '공익-14', name: '자산 기부', file: '추가_공익2.jpg', tnm: '차분함/사색적 (자부심_긍정)', goal: '사회_공헌_독려 (숭고한_가치)', summary: '개인의 자산을 숭고한 가치와 연결' },
+            { id: '공익-15', name: '다치지 마세요', file: '추가_공익7.jpg', tnm: '소박함/따뜻한 감성 (배려_공감)', goal: '산업재해_예방 (휴머니즘)', summary: '휴머니즘을 활용해 안전 수칙 준수 강조' },
+            { id: '공익-16', name: '무료 와이파이 속 엿보는 눈동자', file: '추가_공익6.jpg', tnm: '경계심/불안감 (위험_경각심)', goal: '개인정보_보호 (주의_환기)', summary: '일상 속의 잠재적 위험을 시각화' },
+            { id: '공익-17', name: '불법 소각', file: '추가_공익10.jpg', tnm: '강렬함/위협 (공포_위험)', goal: '위법_행위_경고 (자기_파괴_경고)', summary: '행위자 자신에게 피해가 돌아옴을 강조' },
+            { id: '공익-18', name: '우산 안으로 행복 앞으로', file: '추가_공익1.jpg', tnm: '밝음/따뜻함 (연대감_희망)', goal: '아동_보호_후원 (긍정적_감성_부여)', summary: '긍정적인 감성을 활용해 후원 이미지 부여' },
+            { id: '공익-19', name: '뒷좌석 안전띠 CHECK', file: '추가_공익8.jpg', tnm: '밝음/진지함 (책임감_안전)', goal: '안전_습관_유도 (책임감_강조)', summary: '긍정적 이미지와 부정적 통계 대비' },
+            { id: '공익-20', name: '산불예방', file: '추가_공익4.jpg', tnm: '위협적/강렬함 (두려움_손실)', goal: '예방_행동_촉구 (공포_회피)', summary: '공포/손실 회피 심리를 활용' }
         ]
     };
 
@@ -757,6 +750,25 @@
     }
 
     generateWordCloudData();
+
+    const CATEGORY_HUES = {
+        'global': 220,
+        '전자가전': 200,
+        '식품건강': 120,
+        '화장품': 0,
+        '공익단체': 45
+    };
+
+    function averageHuesToColor(hues, lightness, saturation) {
+        if (hues.size === 0) return `hsl(0, 0%, ${lightness}%)`;
+        const hueArray = Array.from(hues).map(key =>
+            typeof key === 'string' ? (CATEGORY_HUES[key] || 0) : key
+        );
+        const sumHue = hueArray.reduce((sum, hue) => sum + hue, 0);
+        const avgHue = sumHue / hueArray.length;
+        const finalSaturation = hues.size > 1 ? saturation * 0.9 : saturation;
+        return `hsl(${avgHue}, ${finalSaturation}%, ${lightness}%)`;
+    }
 
     /* ===== 3. 페이지 전환 ===== */
     const PAGES = [
@@ -913,84 +925,68 @@
         }
     }
 
-    /* ===== 5. 통계 (워드클라우드) ===== */
+    /* ===== 5. 통계 ===== */
 
     function drawWordCloud(canvasId, dataList, categoryKey) {
         const canvas = document.getElementById(canvasId);
         const container = document.getElementById('wc-container');
 
-        if (!canvas || !container) return;
-
-        // 컨테이너 크기에 맞춰 캔버스 설정
-        const paddingFix = 32; // 안쪽 여백 감안해서 약간 줄임
-        canvas.width = Math.max(container.clientWidth - paddingFix, 400);
-        canvas.height = Math.max(container.clientHeight - paddingFix, 280);
-
-        if (!dataList || dataList.length === 0 || typeof WordCloud === 'undefined') {
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#bbb';
-            ctx.font = '14px Malgun Gothic';
-            ctx.textAlign = 'center';
-            ctx.fillText('표시할 키워드 데이터가 없습니다.', canvas.width / 2, canvas.height / 2);
-            return;
-        }
+        canvas.width = container.clientWidth - 22;
+        canvas.height = container.clientHeight - 22;
 
         const maxWeight = dataList.reduce((max, item) => Math.max(max, item[1]), 0);
         const minWeight = dataList.reduce((min, item) => Math.min(min, item[1]), Infinity);
 
-        // 👉 컬러를 카테고리별 톤 한 가지로만 사용 (깔끔한 모노톤 느낌)
-        const baseHueMap = {
-            'global': 210,      // 차분한 블루그레이
-            '전자가전': 210,
-            '식품건강': 150,
-            '화장품': 5,
-            '공익단체': 35
-        };
-        const baseHue = baseHueMap[categoryKey] ?? 210;
-
         const colorFunc = (word, weight) => {
-            let normalizedWeight = 0.5;
+            let currentHues = new Set();
+            const lowerWord = word.toLowerCase();
+
+            if (categoryKey === 'global') {
+                const entry = keywordMultimap[lowerWord];
+                currentHues = entry && entry.categories.size > 0 ? entry.categories : new Set(['global']);
+            } else {
+                currentHues.add(categoryKey);
+            }
+
+            let normalizedWeight = 0;
             if (maxWeight !== minWeight) {
                 normalizedWeight = (weight - minWeight) / (maxWeight - minWeight);
             }
 
-            const saturation = 10 + normalizedWeight * 25; // 10% ~ 35%
-            const lightness = 25 + normalizedWeight * 45;  // 25% ~ 70%
+            const saturation = 30 + (normalizedWeight * 70);
+            const lightness = 45 + (normalizedWeight * 30);
 
-            return `hsl(${baseHue}, ${saturation}%, ${lightness}%)`;
+            return averageHuesToColor(currentHues, lightness, saturation);
         };
 
-        // 글자 크기를 화면 크기에 따라 자연스럽게
-        const baseSize = Math.min(canvas.width, canvas.height);
-        const weightFactor = function (size) {
-            const normalized = (maxWeight !== minWeight)
-                ? (size - minWeight) / (maxWeight - minWeight)
-                : 0.5;
-            const minFont = 14;
-            const maxFont = baseSize / 12; // 화면이 클수록 최대 폰트 커짐
-            return minFont + normalized * (maxFont - minFont);
-        };
+        if (typeof WordCloud !== 'undefined' && dataList && dataList.length > 0) {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        WordCloud(canvas, {
-            list: dataList,
-            fontFamily: 'Malgun Gothic',
-            weightFactor: weightFactor,
-            gridSize: Math.round(baseSize / 60),  // 밀도 조절
-            color: colorFunc,
-            backgroundColor: '#ffffff',
-            minSize: 10,
-            rotateRatio: 0,          // 전부 가로: 더 깔끔하게
-            drawOutOfBound: false,
-            shrinkToFit: true,
-            hover: function () {
-                // 별도 텍스트 출력 없이 깔끔하게
-                canvas.style.cursor = 'default';
-            }
-        });
+            WordCloud(canvas, {
+                list: dataList,
+                fontFamily: 'Malgun Gothic',
+                weightFactor: 12,
+                gridSize: 8,
+                color: colorFunc,
+                backgroundColor: '#ffffff',
+                minSize: 10,
+                rotateRatio: 0,
+                drawOutOfBound: false,
+                shrinkToFit: true,
+                hover: function() {
+                    // 카테고리 텍스트 출력 없음, 커서만 기본
+                    canvas.style.cursor = 'default';
+                }
+            });
+        } else {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#999';
+            ctx.font = '14px Malgun Gothic';
+            ctx.textAlign = 'center';
+            ctx.fillText('표시할 키워드 데이터가 없습니다.', canvas.width / 2, canvas.height / 2);
+        }
     }
 
     function openStatTab(categoryKey, button) {
